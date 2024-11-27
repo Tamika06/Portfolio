@@ -7,22 +7,24 @@
     <link rel="stylesheet" href="styles.css"> <!-- Links to the CSS file -->
 </head>
 <body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div> 
     <!-- Header Section -->
-    <header id="home">
+    <header>
         <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </nav>
         <div class="header-content">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Discover my work, skills, and experience!</p>
-            <a href="#projects" class="cta-button">Explore Projects</a>
+          <h1 class="typing-text"></h1>
+          <p>Welcome to my portfolio, where creativity meets code.</p>
+          <a href="#projects" class="cta-button">See My Work</a>
         </div>
-    </header>
+      </header>
 
     <!-- About Section -->
     <section id="about">
@@ -40,12 +42,16 @@
         <h2>My Projects</h2>
         <div class="project-card">
             <h3>Project 1</h3>
+            <div class="details">
             <p>A brief description of Project 1.</p>
+            </div>
             <a href="#">View More</a>
         </div>
         <div class="project-card">
             <h3>Project 2</h3>
+            <div class="details">
             <p>A brief description of Project 2.</p>
+            </div>
             <a href="#">View More</a>
         </div>
         <!-- Add more project cards as needed -->
@@ -58,26 +64,44 @@
     <form action="https://formspree.io/f/mgvenzno" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
+        <span class="error-message" id="name-error"></span>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
+        <span class="error-message" id="email-error"></span>
 
         <label for="message">Message:</label>
         <textarea id="message" name="message" rows="5" required></textarea>
+        <span class="error-message" id="message-error"></span>
 
         <!-- Hidden Fields for Formspree -->
         <input type="hidden" name="_next" value="https://tamika06.github.io/Portfolio/">
         <input type="hidden" name="_replyto" value="tamikakrause@gmail.com">
         <input type="hidden" name="_subject" value="New Message from Portfolio Contact Form">
         <button type="submit">Send</button>
-    </form>
-</section>
 
+        <div id="loading-spinner" style="display: none;">
+            <p>Sending...</p>
+            <div class="spinner"></div>
+        </div>
+
+    </form>
+    <div id="success-message" style="display: none;">
+    <p>Thank you for reaching out! Your message has been sent.</p>
+</div>
+</section>
+<button class="back-to-top">↑</button>
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Tamika Krause. All rights reserved.</p>
-    </footer>
-
+        <p>Connect with me:</p>
+        <div>
+          <a href="https://github.com/Tamika06" target="_blank">GitHub</a> |
+          <a href="https://www.linkedin.com/in/tamika-krause-410061332/" target="_blank">LinkedIn</a> |
+          <a href="tamikakrause@gmail.com">Email</a>
+        </div>
+        <p>© 2024 Tamika. All rights reserved.</p>
+      </footer>
+      
     <script src="script.js"></script> <!-- Links to the JavaScript file -->
 </body>
 </html>

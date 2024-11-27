@@ -27,6 +27,19 @@ header {
   padding: 20px;
 }
 
+.typing-text {
+  font-size: 3rem; /* Ensure this is your desired font size */
+  line-height: 1.2; /* Adjust to ensure proper spacing between lines */
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+  height: 3.6rem; /* Adjust to slightly more than your font size */
+  overflow: hidden; /* Keeps text within the container */
+  display: flex;
+  align-items: center; /* Centers text vertically */
+  justify-content: center; /* Centers text horizontally */
+}
+
 header nav ul {
   list-style: none;
   display: flex;
@@ -110,19 +123,38 @@ section h2 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden; /* Ensures hidden hover content stays inside */
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
-
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
 .project-card h3 {
   margin-bottom: 10px;
   font-size: 1.5rem;
 }
+.project-card .details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 120, 255, 0.8);
+  color: white;
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
 
+.project-card:hover .details {
+  transform: translateY(0);
+}
 .project-card a {
   text-decoration: none;
   color: #0078ff;
@@ -196,6 +228,126 @@ footer {
   margin-top: 40px;
 }
 
+footer a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #00d4ff;
+}
+
 footer p {
   font-size: 0.9rem;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: block; /* Change from none to block to allow error messages to show */
+}
+
+#loading-spinner {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #0078ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#success-message {
+  font-size: 1.2rem;
+  color: #28a745;  /* Green color */
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeIn 1s ease-in;
+  display: none;  /* Initially hidden */
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media screen and (max-width: 600px) {
+  #contact form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  #contact form input,
+  #contact form textarea {
+    font-size: 1rem;
+  }
+
+  #contact form button {
+    font-size: 1rem;
+    padding: 15px;
+  }
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background: #0078ff;
+  z-index: 1000;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+}
+
+.progress-bar {
+  width: 0;
+  height: 5px;
+  background: #0078ff;
+  transition: width 0.2s ease;
+}
+
+/* Back-to-Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+  background-color: #00d4ff;
+  transform: scale(1.1);
 }
