@@ -55,16 +55,20 @@
     <section id="contact">
         <h2>Contact Me</h2>
         <p>Have a question or want to work together? Reach out!</p>
-        <form action="https://formspree.io/f/xpwzyljp" method="post">
+        <form action="https://formspree.io/f/xpwzyljp" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
-
+    
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-
+    
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="5" required></textarea>
-
+    
+            <!-- Hidden Fields for Formspree -->
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you">
+            <input type="hidden" name="_replyto" value="your-email@example.com">
+    
             <button type="submit">Send</button>
         </form>
     </section>
